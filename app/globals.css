@@ -2,32 +2,139 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+/* --- TOC Start --- */
+/*
+1. Site-wide Styles
+2. Header and footer
+3. Main Element Styles
+4. Form Styles
+5. Fact List Styles
+6. Navigation Styles
+7. Button Styles
+8. Homepage-specific Styles
+*/
+/* --- TOC End --- */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/* Site-wide Styles */
+@layer utilities {
+  * {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-lightest flex flex-col h-screen overflow-hidden;
+  }
+  a {
+    @apply font-bold text-accent hover:text-darkest;
+  }
+  .sm-text {
+    @apply text-sm uppercase font-bold tracking-wider text-accent
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Header & Footer Styles */
+@layer utilities {
+  header {
+    @apply flex w-full bg-darkest border-b border-darkest  p-4 h-16;
+  }
+  footer {
+    @apply flex gap-x-2 items-center w-full bg-darkest border-t border-darkest p-4 h-16;
+  }
+
+  header > .scrollable-container,
+  footer > .scrollable-container {
+    @apply container mx-auto flex items-center gap-x-2 justify-between;
+  }
+
+  header h3,
+  footer h3 {
+    @apply text-2xl text-accent font-bold;
+  }
 }
 
+/* Main Element Styles  */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  main {
+    @apply flex bg-light/50 h-[calc(100vh-8rem)] items-start;
+  }
+  main > .scrollable-container {
+    @apply w-full flex flex-col py-12 mx-auto overflow-auto h-[calc(100vh-8rem)];
+  }
+}
+
+/* Form Styles */
+@layer utilities {
+  form {
+    @apply flex flex-col items-start;
+  }
+}
+
+/* Fact List Styles */
+@layer utilities {
+  ul#facts {
+    @apply flex flex-col gap-y-3 max-w-5xl col-span-2;
+  }
+  ul#facts > li {
+    @apply flex gap-x-2 bg-white p-2 rounded-md items-center hover:ml-4 transition-all duration-150 ease-in-out;
+  }
+  ul#facts > li > .block {
+    @apply flex items-center justify-center text-xl font-bold shrink-0 w-10 h-10 bg-accent/10 group-hover:bg-accent/20 text-accent rounded-md;
+  }
+}
+
+/* Navigation Styles */
+@layer utilities {
+  nav > ul {
+    @apply flex flex-row gap-x-3;
+  }
+  nav > ul > li {
+    @apply text-accent font-bold;
+  }
+  nav a,
+  .button-container a {
+    @apply font-bold text-accent hover:text-lightest;
+  }
+}
+
+/* Button Styles */
+@layer components {
+  .btn-accent {
+    @apply bg-accent px-4 py-2 text-lightest font-bold rounded-md text-lg;
+  }
+}
+
+/* Homepage-Specific Styles */
+@layer utilities {
+  .hero-header {
+    @apply text-6xl font-extrabold mb-0;
+  }
+  .hero-p {
+    @apply text-2xl font-semibold mb-8;
+  }
+}
+
+/* Auth Form Styles */
+@layer components {
+  .auth-form-wrapper {
+    @apply flex flex-col w-96 
+    px-6 py-10 sm:px-10 sm:py-8 
+    bg-white rounded-lg shadow-md lg:shadow-lg;
+  }
+  .auth-form-wrapper h2 {
+    @apply text-center font-semibold text-3xl lg:text-4xl text-darkest;
+  }
+  .auth-form-wrapper input {
+    @apply block w-full py-3 px-1 
+    text-darkest appearance-none 
+    border-b-2 border-light/80
+    focus:text-gray-500 focus:outline-none focus:border-light;
+  }
+  .auth-form-wrapper label {
+    @apply block text-xs font-semibold text-dark uppercase;
+  }
+  .auth-form-wrapper > .switch-container {
+    @apply flex gap-x-2 items-center mx-auto bg-light/50 rounded-lg justify-center place-self-center font-bold text-sm uppercase px-2 py-1 mt-3;
+  }
+  .auth-form-wrapper .forgotten-container {
+    @apply sm:flex sm:flex-wrap mt-8 sm:mb-2 text-sm text-center;
   }
 }
