@@ -15,11 +15,8 @@ Install and run the development server:
 
 ## Demo
 
-Preview:
-![Demo GIF of Next App Router example project](http://www.com)
-
 Live demo:
-[View it live](http://www.com).
+[View the live demo](https://wad-app-router-basics.netlify.app/).
 
 ## Tech Stack
 
