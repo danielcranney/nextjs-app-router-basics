@@ -38,8 +38,8 @@ export default async function Home() {
         <p className="sm-text">A little dose of doggy cuteness</p>
         <h3 className="hero-header">Facts and Photos</h3>
         <p className="hero-p">
-          Want more? Refresh the page now for a new photo, but you'll need to
-          click the button to get a new fact.
+          Want more? Refresh the page now for a new photo, but you&apos;ll need
+          to click the button to get a new fact.
         </p>
         <form action={update} className="mx-24 mt-4">
           {/* You could add inputs here, with the data accessible from the 'FormData' inside of the server action */}

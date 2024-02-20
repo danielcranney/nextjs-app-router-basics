@@ -11,7 +11,7 @@ export default function AboutLayout({
           <h3 className="text-darkest text-4xl font-bold">About</h3>
           <p>
             This layout nests inside of app/layout.tsx, and will only affect the
-            'about' route.
+            &apos;about&apos; route.
           </p>
         </div>
       </section>

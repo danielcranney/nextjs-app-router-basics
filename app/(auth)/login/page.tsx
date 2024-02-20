@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 
-export default async function Login() {
+export default function Login() {
   return (
     <div className="auth-form-wrapper">
       <h2>Login</h2>
